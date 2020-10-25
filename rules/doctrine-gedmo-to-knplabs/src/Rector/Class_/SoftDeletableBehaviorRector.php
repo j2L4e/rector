@@ -94,8 +94,9 @@ CODE_SAMPLE
         if ($classPhpDocInfo === null) {
             return null;
         }
+        $classPhpDocInfoClass = $classPhpDocInfo->hasByType(SoftDeleteableTagValueNode::class);
 
-        if (! $classPhpDocInfo->hasByType(SoftDeleteableTagValueNode::class)) {
+        if (! $classPhpDocInfoClass) {
             return null;
         }
 

@@ -135,9 +135,10 @@ final class FluentChainMethodCallRootExtractor
 
         // the method call, does not belong to the
         $staticType = $this->nodeTypeResolver->getStaticType($methodCall);
+        $methodCallNode = $methodCall->getAttribute(AttributeKey::PARENT_NODE);
 
         // no assign
-        if ($methodCall->getAttribute(AttributeKey::PARENT_NODE) instanceof Expression) {
+        if ($methodCallNode instanceof Expression) {
             $variableName = $this->propertyNaming->fqnToVariableName($staticType);
 
             // the assign expresison must be break

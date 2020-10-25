@@ -141,8 +141,9 @@ CODE_SAMPLE
         if ($classPhpDocInfo === null) {
             return null;
         }
+        $classPhpDocInfoClass = $classPhpDocInfo->hasByType(TreeTagValueNode::class);
 
-        if (! $classPhpDocInfo->hasByType(TreeTagValueNode::class)) {
+        if (! $classPhpDocInfoClass) {
             return null;
         }
 

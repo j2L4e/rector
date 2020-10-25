@@ -61,8 +61,9 @@ CODE_SAMPLE
 
             return null;
         }
+        $nodeNode = $node->getAttribute(AttributeKey::PARENT_NODE);
 
-        if ($node->getAttribute(AttributeKey::PARENT_NODE) instanceof Expression) {
+        if ($nodeNode instanceof Expression) {
             $this->removeNode($node);
 
             return null;

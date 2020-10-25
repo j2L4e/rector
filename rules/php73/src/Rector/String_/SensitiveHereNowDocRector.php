@@ -60,7 +60,8 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        if (! in_array($node->getAttribute(AttributeKey::KIND), [String_::KIND_HEREDOC, String_::KIND_NOWDOC], true)) {
+        $nodeKind = $node->getAttribute(AttributeKey::KIND);
+        if (! in_array($nodeKind, [String_::KIND_HEREDOC, String_::KIND_NOWDOC], true)) {
             return null;
         }
 

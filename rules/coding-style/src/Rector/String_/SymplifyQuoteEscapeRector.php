@@ -66,12 +66,14 @@ CODE_SAMPLE
     {
         $doubleQuoteCount = substr_count($node->value, '"');
         $singleQuoteCount = substr_count($node->value, "'");
+        $nodeKind = $node->getAttribute(AttributeKey::KIND);
 
-        if ($node->getAttribute(AttributeKey::KIND) === String_::KIND_SINGLE_QUOTED) {
+        if ($nodeKind === String_::KIND_SINGLE_QUOTED) {
             $this->processSingleQuoted($node, $doubleQuoteCount, $singleQuoteCount);
         }
+        $nodeKind = $node->getAttribute(AttributeKey::KIND);
 
-        if ($node->getAttribute(AttributeKey::KIND) === String_::KIND_DOUBLE_QUOTED) {
+        if ($nodeKind === String_::KIND_DOUBLE_QUOTED) {
             $this->processDoubleQuoted($node, $singleQuoteCount, $doubleQuoteCount);
         }
 

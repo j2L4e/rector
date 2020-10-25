@@ -307,8 +307,9 @@ CODE_SAMPLE
         if (! $this->isName($node, '#^(render|action)#')) {
             return true;
         }
+        $nodeAnnotation = $node->getAttribute(ExplicitRouteAnnotationDecorator::HAS_ROUTE_ANNOTATION);
 
-        if ($node->getAttribute(ExplicitRouteAnnotationDecorator::HAS_ROUTE_ANNOTATION)) {
+        if ($nodeAnnotation) {
             return true;
         }
 

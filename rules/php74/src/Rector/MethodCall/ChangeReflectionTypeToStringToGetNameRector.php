@@ -162,8 +162,9 @@ CODE_SAMPLE
 
     private function shouldSkipMethodCall(MethodCall $methodCall): bool
     {
+        $methodCallScope = $methodCall->getAttribute(AttributeKey::SCOPE);
         // just added node → skip it
-        if ($methodCall->getAttribute(AttributeKey::SCOPE) === null) {
+        if ($methodCallScope === null) {
             return true;
         }
 

@@ -152,9 +152,10 @@ CODE_SAMPLE
         } else {
             return null;
         }
+        $foreachNode = $foreach->getAttribute(AttributeKey::NEXT_NODE);
 
         // is next node Return?
-        if ($foreach->getAttribute(AttributeKey::NEXT_NODE) instanceof Return_) {
+        if ($foreachNode instanceof Return_) {
             $this->return = $foreach->getAttribute(AttributeKey::NEXT_NODE);
             $this->removeNode($this->return);
         }

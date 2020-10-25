@@ -61,7 +61,8 @@ CODE_SAMPLE
      */
     public function refactor(Node $node): ?Node
     {
-        if ($node->getAttribute(AttributeKey::KIND) !== Double::KIND_REAL) {
+        $nodeKind = $node->getAttribute(AttributeKey::KIND);
+        if ($nodeKind !== Double::KIND_REAL) {
             return null;
         }
 

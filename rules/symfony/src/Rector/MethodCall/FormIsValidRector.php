@@ -83,8 +83,9 @@ CODE_SAMPLE
 
     private function shouldSkipMethodCall(MethodCall $methodCall): bool
     {
+        $methodCallNode = $methodCall->getAttribute(AttributeKey::ORIGINAL_NODE);
         // skip just added calls
-        if ($methodCall->getAttribute(AttributeKey::ORIGINAL_NODE) === null) {
+        if ($methodCallNode === null) {
             return true;
         }
 
@@ -95,8 +96,9 @@ CODE_SAMPLE
         if (! $this->isName($methodCall->name, 'isValid')) {
             return true;
         }
+        $methodCallNode = $methodCall->getAttribute(AttributeKey::PREVIOUS_NODE);
 
-        if ($methodCall->getAttribute(AttributeKey::PREVIOUS_NODE) !== null) {
+        if ($methodCallNode !== null) {
             return true;
         }
 
