@@ -401,7 +401,9 @@ final class PhpDocInfoPrinter
 
     private function hasDescription(AttributeAwarePhpDocTagNode $attributeAwarePhpDocTagNode): bool
     {
-        $attributeAwarePhpDocTagNodeSpaces = $attributeAwarePhpDocTagNode->getAttribute(Attribute::HAS_DESCRIPTION_WITH_ORIGINAL_SPACES);
+        $attributeAwarePhpDocTagNodeSpaces = $attributeAwarePhpDocTagNode->getAttribute(
+            Attribute::HAS_DESCRIPTION_WITH_ORIGINAL_SPACES
+        );
         if (! $attributeAwarePhpDocTagNodeSpaces) {
             return false;
         }
