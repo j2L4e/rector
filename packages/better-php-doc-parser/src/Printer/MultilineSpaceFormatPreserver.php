@@ -54,7 +54,8 @@ final class MultilineSpaceFormatPreserver
     public function fixMultilineDescriptions(
         AttributeAwareNodeInterface $attributeAwareNode
     ): AttributeAwareNodeInterface {
-        if (! $attributeAwareNode->getAttribute(Attribute::ORIGINAL_CONTENT)) {
+        $attributeAwareNodeContent = $attributeAwareNode->getAttribute(Attribute::ORIGINAL_CONTENT);
+        if (! $attributeAwareNodeContent) {
             return $attributeAwareNode;
         }
 

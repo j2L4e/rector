@@ -49,7 +49,8 @@ final class NameImportingPostRector extends AbstractPostRector
 
     public function enterNode(Node $node): ?Node
     {
-        if (! $this->parameterProvider->provideParameter(Option::AUTO_IMPORT_NAMES)) {
+        $parameterProviderNames = $this->parameterProvider->provideParameter(Option::AUTO_IMPORT_NAMES);
+        if (! $parameterProviderNames) {
             return null;
         }
 
