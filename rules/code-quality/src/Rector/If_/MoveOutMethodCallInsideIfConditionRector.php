@@ -195,6 +195,7 @@ CODE_SAMPLE
     {
         return $methodCallVarName . ucfirst($methodCallName);
     }
+
     private function getStringVarName(String_ $string, string $methodCallVarName, string $fallbackVarName): string
     {
         $get = str_ireplace('get', '', $string->value . ucfirst($fallbackVarName));
